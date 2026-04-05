@@ -610,6 +610,67 @@
     .venue-map { height: 220px; }
   }
 
+
+  .detail-map-wrap {
+    margin: 18px auto 0;
+    width: 100%;
+    max-width: 360px;
+    aspect-ratio: 1 / 1;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid rgba(155,137,180,0.25);
+    background: var(--white);
+  }
+  .detail-map {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+  }
+
+  /* ===== GIFT ===== */
+  .gift-section {
+    background: var(--white);
+    text-align: center;
+  }
+  .gift-card {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 36px 28px;
+    background: linear-gradient(135deg, var(--lavender-pale) 0%, var(--gold-pale) 100%);
+    border-radius: 10px;
+  }
+  .gift-text {
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 1.85;
+    color: var(--text-mid);
+    max-width: 560px;
+    margin: 0 auto;
+  }
+  .gift-iban {
+    margin-top: 22px;
+    font-family: 'Jost', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    letter-spacing: 0.14em;
+    color: var(--lavender-deep);
+    word-break: break-word;
+  }
+  @media (max-width: 600px) {
+    .detail-map-wrap {
+      max-width: 100%;
+      aspect-ratio: 1 / 1;
+    }
+    .gift-card {
+      padding: 30px 20px;
+    }
+    .gift-iban {
+      font-size: 13px;
+      letter-spacing: 0.08em;
+    }
+  }
+
   /* ===== FOOTER ===== */
   footer {
     background: var(--text-dark);
@@ -671,7 +732,6 @@
 <ul class="nav-links" id="navLinks">
 <li><a data-i18n="nav_details" href="#detalls" onclick="closeNav()">Detalls</a></li>
 <li><a data-i18n="nav_rsvp" href="#rsvp" onclick="closeNav()">Confirmació</a></li>
-<li><a data-i18n="nav_venue" href="#lloc" onclick="closeNav()">El Lloc</a></li>
 <!-- Language switcher inside drawer (mobile only) -->
 <li class="nav-lang-row">
 <button class="lang-btn active" onclick="setLang('ca')">CA</button>
@@ -744,6 +804,9 @@
 <h3 data-i18n="ceremony_title">Cerimònia</h3>
 <span class="detail-time">17:30 h</span>
 <p data-i18n="ceremony_text">Església de Santa Maria de Llerona<br/>Carrer Pas de la Creu, s/n<br/>08520 Llerona, Barcelona</p>
+<div class="detail-map-wrap">
+<iframe allowfullscreen="" class="detail-map" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2981.2817400849776!2d2.297643776160457!3d41.649654371267744!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a4c6031d9923b7%3A0x2b2c894457dee7cd!2sEsgl%C3%A9sia%20de%20Santa%20Maria%20de%20Llerona!5e0!3m2!1sen!2ses!4v1775413527162!5m2!1sen!2ses"></iframe>
+</div>
 </div>
 <div class="detail-divider"></div>
 <div class="detail-card">
@@ -751,6 +814,9 @@
 <h3 data-i18n="reception_title">Celebració</h3>
 <span class="detail-time">19:00 h</span>
 <p data-i18n="reception_text">Can Ribas de Montbui<br/>Camí de Can Ribas, s/n<br/>08415 Bigues i Riells, Barcelona</p>
+<div class="detail-map-wrap">
+<iframe allowfullscreen="" class="detail-map" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2980.6312558547766!2d2.1948679761611465!3d41.66370847126606!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a4c3e7c711f469%3A0x653a613cf6101fac!2sCan%20Ribas%20de%20Montbui!5e0!3m2!1sen!2ses!4v1775413608662!5m2!1sen!2ses"></iframe>
+</div>
 <span class="dress-tag" data-i18n="dress_code">Etiqueta Gala</span>
 </div>
 </div>
@@ -766,36 +832,17 @@
 <div style="text-align:center">
 <a class="rsvp-btn" data-i18n="rsvp_btn" href="https://form.typeform.com/to/ypo452KG" rel="noopener" target="_blank">Confirmar assistència</a>
 </div>
-<p class="rsvp-note" data-i18n="rsvp_note">L'enllaç de confirmació estarà disponible aviat</p>
 </div>
 </section>
-<!-- VENUES -->
-<section class="venues-section reveal" id="lloc">
+<!-- GIFT -->
+<section class="gift-section reveal" id="gift">
 <div class="container">
-<p class="section-eyebrow" data-i18n="venues_eyebrow">Com arribar</p>
-<h2 class="section-title" data-i18n="venues_title">Els <em>llocs</em></h2>
+<p class="section-eyebrow" data-i18n="gift_eyebrow">Regal</p>
+<h2 class="section-title" data-i18n="gift_title">Un <em>detall</em></h2>
 <div class="gold-line"></div>
-<div class="venues-grid">
-<div class="venue-card">
-<iframe allowfullscreen="" class="venue-map" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2984.3!2d2.24800!3d41.64600!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f14.0!3m3!1m2!1s0x12a4ee6b1234abcd%3A0xabcdef123456!2sEsgl%C3%A9sia+de+Santa+Maria+de+Llerona!5e0!3m2!1sca!2ses!4v1700000000000&amp;q=Carrer+Pas+de+la+Creu,+Llerona,+Barcelona">
-</iframe>
-<div class="venue-info">
-<span class="venue-time">17:30 h · <span data-i18n="ceremony_label">Cerimònia</span></span>
-<p class="venue-name">Església de Santa Maria de Llerona</p>
-<p class="venue-address">Carrer Pas de la Creu, s/n · 08520 Llerona, Barcelona</p>
-<p class="venue-note" data-i18n="venue_note_ceremony">🚗 Es recomana venir en cotxe. L'estiu hi sol haver molt de trànsit cap a aquesta direcció — sortiu amb temps!</p>
-</div>
-</div>
-<div class="venue-card">
-<iframe allowfullscreen="" class="venue-map" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2982.1!2d2.18900!3d41.67900!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f14.0!3m3!1m2!1s0x12a4f12345678901%3A0x123456789abcdef!2sCan+Ribas+de+Montbui!5e0!3m2!1sca!2ses!4v1700000000001&amp;q=Cam%C3%AD+de+Can+Ribas,+Bigues+i+Riells,+Barcelona">
-</iframe>
-<div class="venue-info">
-<span class="venue-time">19:00 h · <span data-i18n="reception_label">Celebració</span></span>
-<p class="venue-name">Can Ribas de Montbui</p>
-<p class="venue-address">Camí de Can Ribas, s/n · 08415 Bigues i Riells, Barcelona</p>
-<p class="venue-note" data-i18n="venue_note_reception">🕐 La cerimònia i la celebració estan a uns 20 minuts en cotxe. Sortiu amb temps suficient!</p>
-</div>
-</div>
+<div class="gift-card">
+<p class="gift-text" data-i18n="gift_text">La vostra presència és el nostre regal més valuós. Si tot i així voleu tenir un detall amb nosaltres, agrairíem una contribució per al nostre nou camí junts.</p>
+<p class="gift-iban">ES88 0049 0528 1725 1114 2675</p>
 </div>
 </div>
 </section>
@@ -810,7 +857,7 @@
 // ===== TRANSLATIONS =====
 const i18n = {
   ca: {
-    nav_details:'Detalls',nav_rsvp:'Confirmació',nav_venue:'El Lloc',
+    nav_details:'Detalls',nav_rsvp:'Confirmació',
     couple_eyebrow:'Us convidem a celebrar',couple_heading:'El nostre <em>gran dia</em>',
     couple_text:'Amb molta il·lusió i amor, us convidem a acompanyar-nos en aquest dia tan especial. Serà un plaer compartir-lo amb vosaltres.',
         countdown_eyebrow:'Compte enrere',countdown_title:'Queda <em>poc!</em>',
@@ -821,14 +868,12 @@ const i18n = {
     dress_code:'Etiqueta Gala',
     rsvp_eyebrow:'Confirmació d\'assistència',rsvp_title:'Ens <em>acompanyes?</em>',
     rsvp_text:'Si us plau, confirmeu la vostra assistència abans del dia 8 d\'abril de 2026.',
-    rsvp_btn:'Confirmar assistència',rsvp_note:'L\'enllaç de confirmació estarà disponible aviat',
-    venues_eyebrow:'Com arribar',venues_title:'Els <em>llocs</em>',
-    ceremony_label:'Cerimònia',reception_label:'Celebració',
-    venue_note_ceremony:'🚗 Es recomana venir en cotxe. L\'estiu hi sol haver molt de trànsit cap a aquesta direcció — sortiu amb temps!',
-    venue_note_reception:'🕐 La cerimònia i la celebració estan a uns 20 minuts en cotxe. Sortiu amb temps suficient!',
+    rsvp_btn:'Confirmar assistència',
+    gift_eyebrow:'Regal',gift_title:'Un <em>detall</em>',
+    gift_text:'La vostra presència és el nostre regal més valuós. Si tot i així voleu tenir un detall amb nosaltres, agrairíem una contribució per al nostre nou camí junts.',
       },
   es: {
-    nav_details:'Detalles',nav_rsvp:'Confirmación',nav_venue:'El Lugar',
+    nav_details:'Detalles',nav_rsvp:'Confirmación',
     couple_eyebrow:'Os invitamos a celebrar',couple_heading:'Nuestro <em>gran día</em>',
     couple_text:'Con mucha ilusión y amor, os invitamos a acompañarnos en este día tan especial. Será un placer compartirlo con vosotros.',
         countdown_eyebrow:'Cuenta atrás',countdown_title:'¡Queda <em>poco!</em>',
@@ -839,14 +884,12 @@ const i18n = {
     dress_code:'Etiqueta Gala',
     rsvp_eyebrow:'Confirmación de asistencia',rsvp_title:'¿Nos <em>acompañas?</em>',
     rsvp_text:'Por favor, confirmad vuestra asistencia antes del 8 de abril de 2026.',
-    rsvp_btn:'Confirmar asistencia',rsvp_note:'El enlace de confirmación estará disponible pronto',
-    venues_eyebrow:'Cómo llegar',venues_title:'Los <em>lugares</em>',
-    ceremony_label:'Ceremonia',reception_label:'Celebración',
-    venue_note_ceremony:'🚗 Se recomienda venir en coche. En verano suele haber bastante tráfico — ¡salid con tiempo!',
-    venue_note_reception:'🕐 La ceremonia y la celebración están a unos 20 minutos en coche. ¡Salid con tiempo suficiente!',
+    rsvp_btn:'Confirmar asistencia',
+    gift_eyebrow:'Regalo',gift_title:'Un <em>detalle</em>',
+    gift_text:'Vuestra presencia es nuestro regalo más valioso. Si aun así queréis tener un detalle con nosotros, agradeceríamos una contribución para nuestro nuevo camino juntos.',
       },
   en: {
-    nav_details:'Details',nav_rsvp:'RSVP',nav_venue:'The Venue',
+    nav_details:'Details',nav_rsvp:'RSVP',
     couple_eyebrow:'You are invited to celebrate',couple_heading:'Our <em>big day</em>',
     couple_text:'With great joy and love, we invite you to join us on this very special day. It will be a pleasure to share it with you.',
         countdown_eyebrow:'Countdown',countdown_title:'Almost <em>there!</em>',
@@ -857,11 +900,9 @@ const i18n = {
     dress_code:'Black Tie / Gala',
     rsvp_eyebrow:'RSVP',rsvp_title:'Will you <em>join us?</em>',
     rsvp_text:'Please confirm your attendance by April 8th, 2026.',
-    rsvp_btn:'Confirm attendance',rsvp_note:'The RSVP link will be available soon',
-    venues_eyebrow:'How to get there',venues_title:'The <em>venues</em>',
-    ceremony_label:'Ceremony',reception_label:'Reception',
-    venue_note_ceremony:'🚗 We recommend coming by car. There tends to be a lot of summer traffic — please leave early!',
-    venue_note_reception:'🕐 The ceremony and reception are about 20 minutes apart by car. Allow enough travel time!',
+    rsvp_btn:'Confirm attendance',
+    gift_eyebrow:'Gift',gift_title:'A little <em>something</em>',
+    gift_text:'Your presence is the most valuable gift to us. If you would still like to have a small gesture with us, we would appreciate a contribution towards our new journey together.',
       }
 };
 
