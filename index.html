@@ -30,7 +30,7 @@
     overflow-x: hidden;
   }
 
-  /* ===== LANG SWITCHER ===== */
+  /* ===== LANG SWITCHER — desktop only ===== */
   .lang-switcher {
     position: fixed;
     top: 14px;
@@ -91,11 +91,13 @@
   .nav-toggle {
     display: none;
     flex-direction: column;
+    justify-content: center;
     gap: 5px;
     background: none;
     border: none;
     cursor: pointer;
     padding: 8px;
+    z-index: 1001;
     -webkit-tap-highlight-color: transparent;
   }
   .nav-toggle span {
@@ -103,8 +105,14 @@
     width: 22px;
     height: 1.5px;
     background: var(--text-dark);
-    transition: all 0.3s;
+    transition: all 0.32s cubic-bezier(0.4,0,0.2,1);
+    transform-origin: center;
   }
+  /* Hamburger → X animation */
+  .nav-toggle.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+  .nav-toggle.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+  .nav-toggle.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
   .nav-links {
     display: flex;
     gap: 32px;
@@ -123,35 +131,85 @@
   }
   .nav-links a:hover { color: var(--lavender-deep); }
 
-  /* Mobile nav */
+  /* ===== MOBILE DRAWER ===== */
   @media (max-width: 680px) {
+    .lang-switcher { display: none; } /* hidden on mobile — inside drawer instead */
+
     .nav-toggle { display: flex; }
+
+    /* Full-screen slide-in drawer from the right */
     .nav-links {
       position: fixed;
-      top: 56px; left: 0; right: 0;
-      background: rgba(250,248,244,0.98);
-      backdrop-filter: blur(12px);
+      top: 0; right: 0;
+      width: min(80vw, 300px);
+      height: 100dvh;
+      background: var(--cream);
       flex-direction: column;
       gap: 0;
-      padding: 8px 0 16px;
-      border-bottom: 1px solid rgba(201,168,76,0.2);
-      transform: translateY(-110%);
-      transition: transform 0.35s cubic-bezier(0.4,0,0.2,1);
-      opacity: 0;
+      padding: 80px 0 40px;
+      box-shadow: -4px 0 32px rgba(45,36,56,0.12);
+      transform: translateX(100%);
+      transition: transform 0.38s cubic-bezier(0.4,0,0.2,1);
       pointer-events: none;
+      overflow-y: auto;
     }
     .nav-links.open {
-      transform: translateY(0);
+      transform: translateX(0);
+      pointer-events: all;
+    }
+
+    /* Backdrop */
+    .nav-backdrop {
+      display: block;
+      position: fixed;
+      inset: 0;
+      background: rgba(45,36,56,0.4);
+      z-index: 998;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.38s ease;
+    }
+    .nav-backdrop.open {
       opacity: 1;
       pointer-events: all;
     }
-    .nav-links li { border-bottom: 1px solid rgba(155,137,180,0.1); }
+
+    .nav-links li {
+      border-bottom: 1px solid rgba(155,137,180,0.12);
+    }
     .nav-links a {
       display: block;
-      padding: 14px 24px;
+      padding: 17px 28px;
       font-size: 12px;
+      letter-spacing: 0.2em;
+    }
+
+    /* Lang switcher inside drawer */
+    .nav-lang-row {
+      display: flex !important;
+      gap: 8px;
+      padding: 20px 28px 8px;
+      border-top: 1px solid rgba(201,168,76,0.2);
+      margin-top: 8px;
+    }
+    .nav-lang-row .lang-btn {
+      flex: 1;
+      text-align: center;
+      padding: 8px 0;
+      border: 1px solid rgba(155,137,180,0.3);
+      border-radius: 20px;
+      font-size: 11px;
+      min-height: 38px;
+    }
+    .nav-lang-row .lang-btn.active {
+      background: var(--lavender-deep);
+      color: white;
+      border-color: var(--lavender-deep);
     }
   }
+
+  /* Hide lang row on desktop */
+  .nav-lang-row { display: none; }
 
   /* ===== HERO ===== */
   .hero {
@@ -641,12 +699,15 @@
 </head>
 <body>
 
-<!-- LANG SWITCHER -->
+<!-- LANG SWITCHER — desktop -->
 <div class="lang-switcher">
   <button class="lang-btn active" onclick="setLang('ca')">CA</button>
   <button class="lang-btn" onclick="setLang('es')">ES</button>
   <button class="lang-btn" onclick="setLang('en')">EN</button>
 </div>
+
+<!-- Backdrop for mobile drawer -->
+<div class="nav-backdrop" id="navBackdrop" onclick="closeNav()"></div>
 
 <!-- NAV -->
 <nav>
@@ -661,6 +722,12 @@
       <li><a href="#rsvp" data-i18n="nav_rsvp" onclick="closeNav()">Confirmació</a></li>
       <li><a href="#lloc" data-i18n="nav_venue" onclick="closeNav()">El Lloc</a></li>
       <li><a href="#galeria" data-i18n="nav_gallery" onclick="closeNav()">Galeria</a></li>
+      <!-- Language switcher inside drawer (mobile only) -->
+      <li class="nav-lang-row">
+        <button class="lang-btn active" onclick="setLang('ca')">CA</button>
+        <button class="lang-btn" onclick="setLang('es')">ES</button>
+        <button class="lang-btn" onclick="setLang('en')">EN</button>
+      </li>
     </ul>
   </div>
 </nav>
@@ -769,7 +836,7 @@
     <div class="gold-line"></div>
     <p class="rsvp-desc" data-i18n="rsvp_text">Si us plau, confirmeu la vostra assistència abans del dia 1 de juny de 2026.</p>
     <div style="text-align:center">
-      <a class="rsvp-btn" href="#" data-i18n="rsvp_btn">Confirmar assistència</a>
+      <a class="rsvp-btn" href="https://form.typeform.com/to/ypo452KG" target="_blank" rel="noopener" data-i18n="rsvp_btn">Confirmar assistència</a>
     </div>
     <p class="rsvp-note" data-i18n="rsvp_note">L'enllaç de confirmació estarà disponible aviat</p>
   </div>
@@ -909,9 +976,7 @@ const i18n = {
 
 function setLang(lang) {
   document.documentElement.lang = lang;
-  document.querySelectorAll('.lang-btn').forEach(b => {
-    b.classList.toggle('active', b.textContent.trim().toLowerCase() === lang);
-  });
+  setLangAll(lang);
   const t = i18n[lang];
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.getAttribute('data-i18n');
@@ -920,13 +985,29 @@ function setLang(lang) {
 }
 
 // ===== MOBILE NAV =====
-const navToggle = document.getElementById('navToggle');
-const navLinks  = document.getElementById('navLinks');
+const navToggle   = document.getElementById('navToggle');
+const navLinks    = document.getElementById('navLinks');
+const navBackdrop = document.getElementById('navBackdrop');
+
 navToggle.addEventListener('click', () => {
-  navLinks.classList.toggle('open');
+  const isOpen = navLinks.classList.toggle('open');
+  navToggle.classList.toggle('open', isOpen);
+  navBackdrop.classList.toggle('open', isOpen);
+  document.body.style.overflow = isOpen ? 'hidden' : '';
 });
+
 function closeNav() {
   navLinks.classList.remove('open');
+  navToggle.classList.remove('open');
+  navBackdrop.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+// Also sync lang buttons inside drawer
+function setLangAll(lang) {
+  document.querySelectorAll('.lang-btn').forEach(b => {
+    b.classList.toggle('active', b.textContent.trim().toLowerCase() === lang);
+  });
 }
 
 // ===== COUNTDOWN =====
