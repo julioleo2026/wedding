@@ -389,23 +389,6 @@
   }
   .section-title em { font-style: italic; color: var(--lavender-deep); }
 
-  /* ===== OUR STORY ===== */
-  .story-section { background: var(--lavender-pale); }
-  .story-body {
-    max-width: 640px;
-    margin: 40px auto 0;
-    text-align: center;
-  }
-  .story-placeholder {
-    border: 1px dashed var(--lavender-light);
-    border-radius: 8px;
-    padding: 40px 28px;
-    color: var(--text-light);
-    font-size: 14px;
-    font-weight: 300;
-    line-height: 1.7;
-  }
-
   /* ===== COUNTDOWN ===== */
   .countdown-section {
     background: var(--text-dark);
@@ -626,35 +609,6 @@
     .venue-map { height: 220px; }
   }
 
-  /* ===== GALLERY ===== */
-  .gallery-section { background: var(--lavender-pale); text-align: center; }
-  .gallery-grid {
-    margin-top: 40px;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-  }
-  .gallery-item {
-    aspect-ratio: 1;
-    background: linear-gradient(135deg, var(--lavender-light), var(--lavender-pale));
-    border-radius: 4px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 28px;
-  }
-  .gallery-note {
-    margin-top: 28px;
-    font-size: 13px;
-    font-weight: 300;
-    font-style: italic;
-    color: var(--text-light);
-  }
-
-  @media (max-width: 480px) {
-    .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
-  }
-
   /* ===== FOOTER ===== */
   footer {
     background: var(--text-dark);
@@ -717,11 +671,9 @@
       <span></span><span></span><span></span>
     </button>
     <ul class="nav-links" id="navLinks">
-      <li><a href="#historia" data-i18n="nav_story" onclick="closeNav()">La Nostra Història</a></li>
       <li><a href="#detalls" data-i18n="nav_details" onclick="closeNav()">Detalls</a></li>
       <li><a href="#rsvp" data-i18n="nav_rsvp" onclick="closeNav()">Confirmació</a></li>
       <li><a href="#lloc" data-i18n="nav_venue" onclick="closeNav()">El Lloc</a></li>
-      <li><a href="#galeria" data-i18n="nav_gallery" onclick="closeNav()">Galeria</a></li>
       <!-- Language switcher inside drawer (mobile only) -->
       <li class="nav-lang-row">
         <button class="lang-btn active" onclick="setLang('ca')">CA</button>
@@ -764,17 +716,6 @@
   </div>
 </div>
 
-<!-- OUR STORY -->
-<section class="story-section reveal" id="historia">
-  <div class="container">
-    <p class="section-eyebrow" data-i18n="story_eyebrow">La nostra història</p>
-    <h2 class="section-title" data-i18n="story_title">Com va <em>començar tot</em></h2>
-    <div class="gold-line"></div>
-    <div class="story-body">
-      <div class="story-placeholder" data-i18n="story_placeholder">✨ Aviat compartirem la nostra història aquí...</div>
-    </div>
-  </div>
-</section>
 
 <!-- COUNTDOWN -->
 <section class="countdown-section reveal">
@@ -877,23 +818,6 @@
   </div>
 </section>
 
-<!-- GALLERY -->
-<section class="gallery-section reveal" id="galeria">
-  <div class="container">
-    <p class="section-eyebrow" data-i18n="gallery_eyebrow">Galeria</p>
-    <h2 class="section-title" data-i18n="gallery_title">Els nostres <em>moments</em></h2>
-    <div class="gold-line"></div>
-    <div class="gallery-grid">
-      <div class="gallery-item">🌸</div>
-      <div class="gallery-item">💐</div>
-      <div class="gallery-item">🌷</div>
-      <div class="gallery-item">✨</div>
-      <div class="gallery-item">🌺</div>
-      <div class="gallery-item">💫</div>
-    </div>
-    <p class="gallery-note" data-i18n="gallery_note">Les fotos s'actualitzaran aviat ✨</p>
-  </div>
-</section>
 
 <!-- FOOTER -->
 <footer>
@@ -907,12 +831,10 @@
 // ===== TRANSLATIONS =====
 const i18n = {
   ca: {
-    nav_story:'La Nostra Història',nav_details:'Detalls',nav_rsvp:'Confirmació',nav_venue:'El Lloc',nav_gallery:'Galeria',
+    nav_details:'Detalls',nav_rsvp:'Confirmació',nav_venue:'El Lloc',
     couple_eyebrow:'Us convidem a celebrar',couple_heading:'El nostre <em>gran dia</em>',
     couple_text:'Amb molta il·lusió i amor, us convidem a acompanyar-nos en aquest dia tan especial. Serà un plaer compartir-lo amb vosaltres.',
-    story_eyebrow:'La nostra història',story_title:'Com va <em>començar tot</em>',
-    story_placeholder:'✨ Aviat compartirem la nostra història aquí...',
-    countdown_eyebrow:'Compte enrere',countdown_title:'Queda <em>poc!</em>',
+        countdown_eyebrow:'Compte enrere',countdown_title:'Queda <em>poc!</em>',
     cd_days:'Dies',cd_hours:'Hores',cd_mins:'Minuts',cd_secs:'Segons',
     details_eyebrow:'Informació',details_title:'Detalls de <em>la celebració</em>',
     ceremony_title:'Cerimònia',ceremony_text:'Església de Santa Maria de Llerona<br>Carrer Pas de la Creu, s/n<br>08520 Llerona, Barcelona',
@@ -925,16 +847,12 @@ const i18n = {
     ceremony_label:'Cerimònia',reception_label:'Celebració',
     venue_note_ceremony:'🚗 Es recomana venir en cotxe. L\'estiu hi sol haver molt de trànsit cap a aquesta direcció — sortiu amb temps!',
     venue_note_reception:'🕐 La cerimònia i la celebració estan a uns 20 minuts en cotxe. Sortiu amb temps suficient!',
-    gallery_eyebrow:'Galeria',gallery_title:'Els nostres <em>moments</em>',
-    gallery_note:'Les fotos s\'actualitzaran aviat ✨'
-  },
+      },
   es: {
-    nav_story:'Nuestra Historia',nav_details:'Detalles',nav_rsvp:'Confirmación',nav_venue:'El Lugar',nav_gallery:'Galería',
+    nav_details:'Detalles',nav_rsvp:'Confirmación',nav_venue:'El Lugar',
     couple_eyebrow:'Os invitamos a celebrar',couple_heading:'Nuestro <em>gran día</em>',
     couple_text:'Con mucha ilusión y amor, os invitamos a acompañarnos en este día tan especial. Será un placer compartirlo con vosotros.',
-    story_eyebrow:'Nuestra historia',story_title:'Cómo <em>empezó todo</em>',
-    story_placeholder:'✨ Pronto compartiremos nuestra historia aquí...',
-    countdown_eyebrow:'Cuenta atrás',countdown_title:'¡Queda <em>poco!</em>',
+        countdown_eyebrow:'Cuenta atrás',countdown_title:'¡Queda <em>poco!</em>',
     cd_days:'Días',cd_hours:'Horas',cd_mins:'Minutos',cd_secs:'Segundos',
     details_eyebrow:'Información',details_title:'Detalles de <em>la celebración</em>',
     ceremony_title:'Ceremonia',ceremony_text:'Església de Santa Maria de Llerona<br>Carrer Pas de la Creu, s/n<br>08520 Llerona, Barcelona',
@@ -947,16 +865,12 @@ const i18n = {
     ceremony_label:'Ceremonia',reception_label:'Celebración',
     venue_note_ceremony:'🚗 Se recomienda venir en coche. En verano suele haber bastante tráfico — ¡salid con tiempo!',
     venue_note_reception:'🕐 La ceremonia y la celebración están a unos 20 minutos en coche. ¡Salid con tiempo suficiente!',
-    gallery_eyebrow:'Galería',gallery_title:'Nuestros <em>momentos</em>',
-    gallery_note:'Las fotos se actualizarán pronto ✨'
-  },
+      },
   en: {
-    nav_story:'Our Story',nav_details:'Details',nav_rsvp:'RSVP',nav_venue:'The Venue',nav_gallery:'Gallery',
+    nav_details:'Details',nav_rsvp:'RSVP',nav_venue:'The Venue',
     couple_eyebrow:'You are invited to celebrate',couple_heading:'Our <em>big day</em>',
     couple_text:'With great joy and love, we invite you to join us on this very special day. It will be a pleasure to share it with you.',
-    story_eyebrow:'Our story',story_title:'How it <em>all began</em>',
-    story_placeholder:'✨ We\'ll share our story here soon...',
-    countdown_eyebrow:'Countdown',countdown_title:'Almost <em>there!</em>',
+        countdown_eyebrow:'Countdown',countdown_title:'Almost <em>there!</em>',
     cd_days:'Days',cd_hours:'Hours',cd_mins:'Minutes',cd_secs:'Seconds',
     details_eyebrow:'Information',details_title:'Celebration <em>details</em>',
     ceremony_title:'Ceremony',ceremony_text:'Església de Santa Maria de Llerona<br>Carrer Pas de la Creu, s/n<br>08520 Llerona, Barcelona',
@@ -969,9 +883,7 @@ const i18n = {
     ceremony_label:'Ceremony',reception_label:'Reception',
     venue_note_ceremony:'🚗 We recommend coming by car. There tends to be a lot of summer traffic — please leave early!',
     venue_note_reception:'🕐 The ceremony and reception are about 20 minutes apart by car. Allow enough travel time!',
-    gallery_eyebrow:'Gallery',gallery_title:'Our <em>moments</em>',
-    gallery_note:'Photos coming soon ✨'
-  }
+      }
 };
 
 function setLang(lang) {
