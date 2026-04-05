@@ -31,38 +31,82 @@
     overflow-x: hidden;
   }
 
-  /* ===== LANG SWITCHER — desktop only ===== */
-  .lang-switcher {
-    position: fixed;
-    top: 14px;
-    right: 14px;
-    z-index: 1000;
+  /* ===== LANG DROPDOWN — desktop nav only ===== */
+  .lang-dropdown {
+    position: relative;
     display: flex;
-    gap: 4px;
-    background: rgba(255,255,255,0.92);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(155,137,180,0.3);
-    border-radius: 30px;
-    padding: 5px 10px;
+    align-items: center;
   }
-  .lang-btn {
+  .lang-dropdown-btn {
     font-family: 'Jost', sans-serif;
     font-size: 11px;
     font-weight: 400;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: var(--text-light);
-    background: none;
-    border: none;
+    color: var(--text-mid);
+    background: rgba(255,255,255,0.85);
+    border: 1px solid rgba(155,137,180,0.35);
+    border-radius: 20px;
+    padding: 5px 12px 5px 10px;
     cursor: pointer;
-    padding: 4px 7px;
-    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
     transition: all 0.25s;
     -webkit-tap-highlight-color: transparent;
     min-height: 32px;
+    white-space: nowrap;
   }
-  .lang-btn.active { background: var(--lavender-deep); color: white; }
+  .lang-dropdown-btn:hover { border-color: var(--lavender); color: var(--lavender-deep); }
+  .lang-dropdown-btn .lang-arrow {
+    display: inline-block;
+    font-size: 8px;
+    transition: transform 0.25s;
+    color: var(--text-light);
+  }
+  .lang-dropdown.open .lang-arrow { transform: rotate(180deg); }
+  .lang-dropdown-menu {
+    position: absolute;
+    top: calc(100% + 6px);
+    right: 0;
+    background: rgba(250,248,244,0.98);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(155,137,180,0.25);
+    border-radius: 12px;
+    padding: 6px 0;
+    min-width: 80px;
+    box-shadow: 0 8px 24px rgba(45,36,56,0.1);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-6px);
+    transition: opacity 0.22s ease, transform 0.22s ease;
+    z-index: 1100;
+  }
+  .lang-dropdown.open .lang-dropdown-menu {
+    opacity: 1;
+    pointer-events: all;
+    transform: translateY(0);
+  }
+  .lang-dropdown-item {
+    font-family: 'Jost', sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text-mid);
+    padding: 8px 16px;
+    cursor: pointer;
+    display: block;
+    width: 100%;
+    background: none;
+    border: none;
+    text-align: left;
+    transition: background 0.2s;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .lang-dropdown-item:hover { background: var(--lavender-pale); }
+  .lang-dropdown-item.active { color: var(--lavender-deep); font-weight: 600; }
 
   /* ===== NAV ===== */
   nav {
@@ -134,7 +178,7 @@
 
   /* ===== MOBILE DRAWER ===== */
   @media (max-width: 680px) {
-    .lang-switcher { display: none; } /* hidden on mobile — inside drawer instead */
+    .lang-dropdown { display: none; } /* hidden on mobile — inside drawer instead */
 
     .nav-toggle { display: flex; }
 
@@ -473,9 +517,9 @@
     margin-bottom: 12px;
   }
   .detail-time {
-    font-size: 10px;
-    font-weight: 300;
-    letter-spacing: 0.2em;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
     color: var(--gold);
     margin-bottom: 10px;
@@ -763,14 +807,8 @@
     transform: translateY(0);
   }
 </style>
-</head>
+<head>
 <body>
-<!-- LANG SWITCHER — desktop -->
-<div class="lang-switcher">
-<button class="lang-btn active" onclick="setLang('ca')">CA</button>
-<button class="lang-btn" onclick="setLang('es')">ES</button>
-<button class="lang-btn" onclick="setLang('en')">EN</button>
-</div>
 <!-- Backdrop for mobile drawer -->
 <div class="nav-backdrop" id="navBackdrop" onclick="closeNav()"></div>
 <!-- NAV -->
@@ -790,6 +828,18 @@
 <button class="lang-btn" onclick="setLang('en')">EN</button>
 </li>
 </ul>
+<!-- Language dropdown — desktop only -->
+<div class="lang-dropdown" id="langDropdown">
+<button class="lang-dropdown-btn" id="langDropdownBtn" onclick="toggleLangDropdown()">
+<span id="langDropdownLabel">CA</span>
+<span class="lang-arrow">▼</span>
+</button>
+<div class="lang-dropdown-menu" id="langDropdownMenu">
+<button class="lang-dropdown-item active" id="langItem-ca" onclick="selectLang('ca')">CA</button>
+<button class="lang-dropdown-item" id="langItem-es" onclick="selectLang('es')">ES</button>
+<button class="lang-dropdown-item" id="langItem-en" onclick="selectLang('en')">EN</button>
+</div>
+</div>
 </div>
 </nav>
 <!-- HERO -->
@@ -1013,7 +1063,32 @@ function setLangAll(lang) {
   document.querySelectorAll('.lang-btn').forEach(b => {
     b.classList.toggle('active', b.textContent.trim().toLowerCase() === lang);
   });
+  // Sync desktop dropdown
+  const label = document.getElementById('langDropdownLabel');
+  if (label) label.textContent = lang.toUpperCase();
+  ['ca','es','en'].forEach(l => {
+    const item = document.getElementById('langItem-' + l);
+    if (item) item.classList.toggle('active', l === lang);
+  });
 }
+
+// ===== LANG DROPDOWN (desktop) =====
+function toggleLangDropdown() {
+  const dd = document.getElementById('langDropdown');
+  if (dd) dd.classList.toggle('open');
+}
+
+function selectLang(lang) {
+  setLang(lang);
+  const dd = document.getElementById('langDropdown');
+  if (dd) dd.classList.remove('open');
+}
+
+// Close dropdown when clicking outside
+document.addEventListener('click', function(e) {
+  const dd = document.getElementById('langDropdown');
+  if (dd && !dd.contains(e.target)) dd.classList.remove('open');
+});
 
 // ===== COUNTDOWN =====
 function updateCountdown() {
