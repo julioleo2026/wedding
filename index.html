@@ -486,6 +486,10 @@
     color: var(--gold);
     border-radius: 20px;
   }
+  .details-dress-tag {
+    display: table;
+    margin: 0 auto 24px;
+  }
 
   @media (max-width: 600px) {
     .details-grid {
@@ -657,6 +661,14 @@
     color: var(--lavender-deep);
     word-break: break-word;
   }
+  .gift-iban,
+  .gift-iban span,
+  .gift-iban a,
+  .gift-iban a[x-apple-data-detectors],
+  .gift-iban [x-apple-data-detectors] {
+    color: var(--lavender-deep) !important;
+    text-decoration: none !important;
+  }
   @media (max-width: 600px) {
     .detail-map-wrap {
       max-width: 100%;
@@ -797,6 +809,7 @@
 <div class="container">
 <p class="section-eyebrow" data-i18n="details_eyebrow">Informació</p>
 <h2 class="section-title" data-i18n="details_title">Detalls de <em>la celebració</em></h2>
+<span class="dress-tag details-dress-tag" data-i18n="dress_code">Etiqueta Gala</span>
 <div class="gold-line"></div>
 <div class="details-grid">
 <div class="detail-card">
@@ -817,7 +830,6 @@
 <div class="detail-map-wrap">
 <iframe allowfullscreen="" class="detail-map" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2980.6312558547766!2d2.1948679761611465!3d41.66370847126606!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a4c3e7c711f469%3A0x653a613cf6101fac!2sCan%20Ribas%20de%20Montbui!5e0!3m2!1sen!2ses!4v1775413608662!5m2!1sen!2ses"></iframe>
 </div>
-<span class="dress-tag" data-i18n="dress_code">Etiqueta Gala</span>
 </div>
 </div>
 </div>
@@ -842,7 +854,7 @@
 <div class="gold-line"></div>
 <div class="gift-card">
 <p class="gift-text" data-i18n="gift_text">La vostra presència és el nostre regal més valuós. Si tot i així voleu tenir un detall amb nosaltres, agrairíem una contribució per al nostre nou camí junts.</p>
-<p class="gift-iban">ES88 0049 0528 1725 1114 2675</p>
+<p class="gift-iban"><span>ES88</span> <span>0049</span> <span>0528</span> <span>1725</span> <span>1114</span> <span>2675</span></p>
 </div>
 </div>
 </section>
