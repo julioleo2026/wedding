@@ -408,7 +408,7 @@
   /* ===== DETAILS NOTICE ===== */
   .details-notice {
     text-align: center;
-    font-size: 13px;
+    font-size: 15px;
     font-weight: 300;
     line-height: 1.75;
     color: var(--text-mid);
@@ -460,7 +460,7 @@
   }
   .couple-text h2 em { font-style: italic; color: var(--lavender-deep); }
   .couple-text p {
-    font-size: 15px;
+    font-size: 17px;
     font-weight: 300;
     line-height: 1.85;
     color: var(--text-mid);
@@ -583,7 +583,7 @@
     display: block;
   }
   .detail-card p {
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 300;
     line-height: 1.85;
     color: var(--text-mid);
@@ -604,6 +604,50 @@
     margin: 0 auto 24px;
   }
 
+  .details-extra {
+    max-width: 760px;
+    margin: 42px auto 0;
+    text-align: center;
+  }
+  .details-extra-title {
+    font-size: 10px;
+    font-weight: 300;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 18px;
+  }
+  .details-extra-text {
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.9;
+    color: var(--text-mid);
+    max-width: 720px;
+    margin: 0 auto 24px;
+  }
+  .details-menu {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 24px 28px;
+    background: linear-gradient(135deg, rgba(237,232,245,0.38) 0%, rgba(249,243,227,0.52) 100%);
+    border: 1px solid rgba(201,168,76,0.22);
+    border-radius: 10px;
+  }
+  .details-menu-item {
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.9;
+    color: var(--text-mid);
+  }
+  .details-menu-item + .details-menu-item {
+    margin-top: 10px;
+  }
+  .details-menu-label {
+    color: var(--lavender-deep);
+    font-weight: 400;
+  }
+
+
   /* ===== DRESS CODE ===== */
   .dress-section {
     background: var(--gold-pale);
@@ -618,7 +662,7 @@
     border-radius: 10px;
   }
   .dress-text {
-    font-size: 15px;
+    font-size: 17px;
     font-weight: 300;
     line-height: 1.85;
     color: var(--text-mid);
@@ -649,7 +693,7 @@
     text-align: center;
   }
   .rsvp-desc {
-    font-size: 15px;
+    font-size: 17px;
     font-weight: 300;
     color: var(--text-mid);
     margin-top: 24px;
@@ -681,7 +725,7 @@
   .rsvp-btn:hover { background: var(--text-dark); }
   .rsvp-note {
     margin-top: 16px;
-    font-size: 13px;
+    font-size: 15px;
     font-weight: 300;
     color: var(--text-light);
     font-style: italic;
@@ -727,14 +771,14 @@
     line-height: 1.25;
   }
   .venue-address {
-    font-size: 13px;
+    font-size: 15px;
     font-weight: 300;
     color: var(--text-mid);
     line-height: 1.7;
     margin-bottom: 14px;
   }
   .venue-note {
-    font-size: 12.5px;
+    font-size: 14.5px;
     font-weight: 300;
     font-style: italic;
     color: var(--lavender-deep);
@@ -784,7 +828,7 @@
     border-radius: 10px;
   }
   .gift-text {
-    font-size: 15px;
+    font-size: 17px;
     font-weight: 300;
     line-height: 1.85;
     color: var(--text-mid);
@@ -973,12 +1017,24 @@
 <div class="detail-card">
 <div class="detail-icon">🥂</div>
 <h3 data-i18n="reception_title">Celebració</h3>
-<span class="detail-time">19:00 h</span>
+<span class="detail-time">19:00-3:00am</span>
 <p data-i18n="reception_text">Can Ribas de Montbui<br/>Camí de Can Ribas, s/n<br/>08415 Bigues i Riells, Barcelona</p>
 <div class="detail-map-wrap">
 <iframe allowfullscreen="" class="detail-map" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2980.6312558547766!2d2.1948679761611465!3d41.66370847126606!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a4c3e7c711f469%3A0x653a613cf6101fac!2sCan%20Ribas%20de%20Montbui!5e0!3m2!1sen!2ses!4v1775413608662!5m2!1sen!2ses"></iframe>
 </div>
 </div>
+</div>
+<div class="details-extra">
+<div class="gold-line"></div>
+<p class="details-extra-title" data-i18n="details_menu_title">Menú</p>
+<p class="details-extra-text" data-i18n="details_extra_text">Hi haurà pica-pica, sopar i molta festa. Tenim l’espai reservat fins a les 3 h de la matinada. Durant tota la celebració hi haurà barra lliure de vi i cervesa i, després del sopar, 2 hores de barra lliure de copes.</p>
+<div class="details-menu">
+<p class="details-menu-item" data-i18n="menu_item_snacks"><span class="details-menu-label">Pica-pica</span></p>
+<p class="details-menu-item" data-i18n="menu_item_starter"><span class="details-menu-label">Primer plat degustació</span> · Stracciatella amb caviar d’areng i ravioli de rostit amb el seu glacejat i salsa de foie</p>
+<p class="details-menu-item" data-i18n="menu_item_main"><span class="details-menu-label">Plat principal</span> · Melós de vedella amb parmentier i parmesà</p>
+<p class="details-menu-item" data-i18n="menu_item_dessert"><span class="details-menu-label">Postres</span> · Pastís de formatge al vapor amb coulis de mango</p>
+</div>
+<div class="gold-line" style="margin-top:24px;"></div>
 </div>
 </div>
 </section>
@@ -1039,6 +1095,12 @@ const i18n = {
     details_notice:'Es recomana sortir amb temps. A l\'estiu els divendres sol haver molt de trànsit en aquesta direcció.',
     ceremony_title:'Cerimònia',ceremony_text:'Església de Santa Maria de Llerona<br>Carrer Pas de la Creu, s/n<br>08520 Llerona, Barcelona',
     reception_title:'Celebració',reception_text:'Can Ribas de Montbui<br>Camí de Can Ribas, s/n<br>08415 Bigues i Riells, Barcelona',
+    details_menu_title:'Menú',
+    details_extra_text:'Hi haurà pica-pica, sopar i molta festa. Tenim l’espai reservat fins a les 3 h de la matinada. Durant tota la celebració hi haurà barra lliure de vi i cervesa i, després del sopar, 2 hores de barra lliure de copes.',
+    menu_item_snacks:'<span class="details-menu-label">Pica-pica</span>',
+    menu_item_starter:'<span class="details-menu-label">Primer plat degustació</span> · Stracciatella amb caviar d’areng i ravioli de rostit amb el seu glacejat i salsa de foie',
+    menu_item_main:'<span class="details-menu-label">Plat principal</span> · Melós de vedella amb parmentier i parmesà',
+    menu_item_dessert:'<span class="details-menu-label">Postres</span> · Pastís de formatge al vapor amb coulis de mango',
     dress_section_eyebrow:'Dress code',dress_section_title:'Etiqueta <em>de gala</em>',
     dress_section_text:'L\'etiqueta serà de gala. Us demanem, si us plau, que no vestiu ni de blanc ni de color crema.',
     dress_code:'Etiqueta Gala',
@@ -1059,6 +1121,12 @@ const i18n = {
     details_notice:'Se recomienda salir con tiempo. En verano los viernes suele haber mucho tráfico en esta dirección.',
     ceremony_title:'Ceremonia',ceremony_text:'Església de Santa Maria de Llerona<br>Carrer Pas de la Creu, s/n<br>08520 Llerona, Barcelona',
     reception_title:'Celebración',reception_text:'Can Ribas de Montbui<br>Camí de Can Ribas, s/n<br>08415 Bigues i Riells, Barcelona',
+    details_menu_title:'Menú',
+    details_extra_text:'Habrá pica-pica, cena y mucha fiesta. Tenemos el espacio reservado hasta las 3 de la madrugada. Durante toda la celebración habrá barra libre de vino y cerveza y, después de la cena, 2 horas de barra libre de copas.',
+    menu_item_snacks:'<span class="details-menu-label">Pica-pica</span>',
+    menu_item_starter:'<span class="details-menu-label">Primer plato degustación</span> · Stracciatella con caviar de arenque y ravioli de rostit con su glacé y salsa de foie',
+    menu_item_main:'<span class="details-menu-label">Plato principal</span> · Meloso de ternera con parmentier y parmesano',
+    menu_item_dessert:'<span class="details-menu-label">Postre</span> · Tarta de queso al vapor con coulis de mango',
     dress_section_eyebrow:'Dress code',dress_section_title:'Etiqueta <em>de gala</em>',
     dress_section_text:'La etiqueta es de gala. Os pedimos, por favor, que no vistáis ni de blanco ni de color crema.',
     dress_code:'Etiqueta Gala',
@@ -1079,6 +1147,12 @@ const i18n = {
     details_notice:'We recommend leaving with plenty of time. In summer, Fridays tend to have heavy traffic heading in this direction.',
     ceremony_title:'Ceremony',ceremony_text:'Església de Santa Maria de Llerona<br>Carrer Pas de la Creu, s/n<br>08520 Llerona, Barcelona',
     reception_title:'Reception',reception_text:'Can Ribas de Montbui<br>Camí de Can Ribas, s/n<br>08415 Bigues i Riells, Barcelona',
+    details_menu_title:'Menu',
+    details_extra_text:'There will be welcome bites, dinner and lots of dancing. We have the venue reserved until 3 am. Throughout the celebration there will be free-flowing wine and beer and, after dinner, 2 hours of open bar with spirits.',
+    menu_item_snacks:'<span class="details-menu-label">Welcome bites</span>',
+    menu_item_starter:'<span class="details-menu-label">Tasting starter</span> · Stracciatella with herring caviar and roast-meat ravioli with its glaze and foie sauce',
+    menu_item_main:'<span class="details-menu-label">Main course</span> · Slow-cooked beef with parmentier and Parmesan',
+    menu_item_dessert:'<span class="details-menu-label">Dessert</span> · Steamed cheesecake with mango coulis',
     dress_section_eyebrow:'Dress code',dress_section_title:'Formal <em>attire</em>',
     dress_section_text:'The dress code is formal attire. Please avoid wearing white or cream.',
     dress_code:'Formal Attire',
