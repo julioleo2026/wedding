@@ -5,14 +5,43 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0" name="viewport"/>
 <title>Gemma &amp; Adrià · 10 Juliol 2026</title>
-<meta name="description" content="Us convidem a celebrar el nostre gran dia. 10 de juliol de 2026 · Barcelona"/>
+<meta name="description" content="Us convidem a acompanyar-nos en aquest dia tan especial 🎉 10 de juliol de 2026"/>
 <meta property="og:title" content="Gemma &amp; Adrià · 10 Juliol 2026"/>
-<meta property="og:description" content="Us convidem a acompanyar-nos en aquest dia tan especial 💜 10 de juliol de 2026 · Barcelona"/>
+<meta property="og:description" content="Us convidem a acompanyar-nos en aquest dia tan especial 🎉 10 de juliol de 2026"/>
 <meta property="og:image" content="https://i.imgur.com/placeholder-og.png"/>
 <meta property="og:type" content="website"/>
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:title" content="Gemma &amp; Adrià · 10 Juliol 2026"/>
-<meta name="twitter:description" content="Us convidem a acompanyar-nos en aquest dia tan especial 💜 10 de juliol de 2026 · Barcelona"/>
+<meta name="twitter:description" content="Us convidem a acompanyar-nos en aquest dia tan especial 🎉 10 de juliol de 2026"/>
+<script>
+// Read lang param ASAP to set correct OG meta before anything else renders
+(function() {
+  const ogMeta = {
+    ca: {
+      title: 'Gemma & Adrià · 10 Juliol 2026',
+      desc: 'Us convidem a acompanyar-nos en aquest dia tan especial 🎉 10 de juliol de 2026'
+    },
+    es: {
+      title: 'Gemma & Adrià · 10 Julio 2026',
+      desc: 'Os invitamos a acompañarnos en este día tan especial 🎉 10 de julio de 2026'
+    },
+    en: {
+      title: 'Gemma & Adrià · 10th July 2026',
+      desc: 'Join us to celebrate our special day 🎉 10th July 2026'
+    }
+  };
+  const urlLang = new URLSearchParams(window.location.search).get('lang');
+  const lang = (urlLang && ogMeta[urlLang]) ? urlLang : 'ca';
+  const m = ogMeta[lang];
+  document.querySelector('meta[property="og:title"]').setAttribute('content', m.title);
+  document.querySelector('meta[property="og:description"]').setAttribute('content', m.desc);
+  document.querySelector('meta[name="twitter:title"]').setAttribute('content', m.title);
+  document.querySelector('meta[name="twitter:description"]').setAttribute('content', m.desc);
+  document.querySelector('meta[name="description"]').setAttribute('content', m.desc);
+  document.title = m.title;
+  window._initialLang = lang;
+})();
+</script>
 <!-- Favicon inline SVG (logo G&A) -->
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%232d2438'/%3E%3Ctext x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia%2C serif' font-size='22' font-style='italic' fill='%23c9a84c'%3EG%26A%3C/text%3E%3C/svg%3E"/>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&amp;family=Jost:wght@200;300;400&amp;display=swap" rel="stylesheet"/>
@@ -1053,7 +1082,7 @@ const i18n = {
       }
 };
 
-function setLang(lang) {
+function setLang(lang, pushState) {
   document.documentElement.lang = lang;
   setLangAll(lang);
   const t = i18n[lang];
@@ -1061,6 +1090,12 @@ function setLang(lang) {
     const key = el.getAttribute('data-i18n');
     if (t[key] !== undefined) el.innerHTML = t[key];
   });
+  // Update URL param
+  if (pushState !== false) {
+    const url = new URL(window.location.href);
+    url.searchParams.set('lang', lang);
+    window.history.replaceState({}, '', url.toString());
+  }
 }
 
 // ===== MOBILE NAV =====
@@ -1133,6 +1168,12 @@ function updateCountdown() {
 }
 updateCountdown();
 setInterval(updateCountdown, 1000);
+
+// ===== INIT LANGUAGE from URL param =====
+(function() {
+  const lang = window._initialLang || 'ca';
+  setLang(lang, false);
+})();
 
 // ===== SCROLL REVEAL =====
 const revealObs = new IntersectionObserver(entries => {
