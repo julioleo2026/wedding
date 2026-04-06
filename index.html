@@ -408,7 +408,7 @@
   /* ===== DETAILS NOTICE ===== */
   .details-notice {
     text-align: center;
-    font-size: 15px;
+    font-size: 16px;
     font-weight: 300;
     line-height: 1.75;
     color: var(--text-mid);
@@ -650,6 +650,9 @@
   }
   .details-menu-item + .details-menu-item {
     margin-top: 10px;
+  }
+  .details-menu-section-break {
+    margin-top: 24px;
   }
   .details-menu-label {
     color: var(--lavender-deep);
@@ -1044,10 +1047,11 @@
 <div class="details-extra">
 <div class="gold-line"></div>
 <p class="details-extra-text" data-i18n="details_extra_text">Hi haurà pica-pica, sopar i molta festa. Tenim l’espai reservat fins a les 3 h de la matinada. Durant tota la celebració hi haurà barra lliure de vi i cervesa i, després del sopar, 2 hores de barra lliure de copes.</p>
+<div class="gold-line" style="margin-top:24px;"></div>
 <div class="details-menu">
-<p class="details-menu-heading" data-i18n="menu_box_title">MENU</p>
+<p class="details-menu-heading" data-i18n="menu_box_title">MENÚ</p>
 <p class="details-menu-item" data-i18n="menu_part_one"><span class="details-menu-label details-menu-section-title">Primera part · Jardins</span><br/>Pica-pica</p>
-<p class="details-menu-item" data-i18n="menu_part_two"><span class="details-menu-label details-menu-section-title">Segona part · Saló</span></p>
+<p class="details-menu-item details-menu-section-break" data-i18n="menu_part_two"><span class="details-menu-label details-menu-section-title">Segona part · Saló</span></p>
 <p class="details-menu-item" data-i18n="menu_course_one"><span class="details-menu-label">Primer plat degustació</span><br/>Stracciatella amb caviar d’areng</p>
 <p class="details-menu-item" data-i18n="menu_course_two"><span class="details-menu-label">Segon plat degustació</span><br/>Ravioli de rostit amb el seu glacejat i salsa de foie</p>
 <p class="details-menu-item" data-i18n="menu_main_course"><span class="details-menu-label">Plat principal</span><br/>Melós de vedella amb parmentier i parmesà</p>
@@ -1116,7 +1120,7 @@ const i18n = {
     reception_title:'Celebració',reception_text:'Can Ribas de Montbui<br>Camí de Can Ribas, s/n<br>08415 Bigues i Riells, Barcelona',
     details_menu_title:'Menú',
     details_extra_text:'Hi haurà pica-pica, sopar i molta festa. Tenim l’espai reservat fins a les 3 h de la matinada. Durant tota la celebració hi haurà barra lliure de vi i cervesa i, després del sopar, 2 hores de barra lliure de copes.',
-    menu_box_title:'MENU',
+    menu_box_title:'MENÚ',
     menu_part_one:'<span class="details-menu-label details-menu-section-title">Primera part · Jardins</span><br>Pica-pica',
     menu_part_two:'<span class="details-menu-label details-menu-section-title">Segona part · Saló</span>',
     menu_course_one:'<span class="details-menu-label">Primer plat degustació</span><br>Stracciatella amb caviar d’areng',
@@ -1148,8 +1152,8 @@ const i18n = {
     menu_box_title:'MENÚ',
     menu_part_one:'<span class="details-menu-label details-menu-section-title">Primera parte · Jardines</span><br>Pica-pica',
     menu_part_two:'<span class="details-menu-label details-menu-section-title">Segunda parte · Salón</span>',
-    menu_course_one:'<span class="details-menu-label">Plato degustación 1</span><br>Stracciatella con caviar de arenque',
-    menu_course_two:'<span class="details-menu-label">Plato degustación 2</span><br>Ravioli de rustido con su glaseado y salsa de foie',
+    menu_course_one:'<span class="details-menu-label">Primer plato degustación</span><br>Stracciatella con caviar de arenque',
+    menu_course_two:'<span class="details-menu-label">Segundo plato degustación</span><br>Ravioli de “rostit” con su glaseado y salsa de foie',
     menu_main_course:'<span class="details-menu-label">Plato principal</span><br>Meloso de ternera con parmentier y parmesano',
     menu_dessert_course:'<span class="details-menu-label">Postre</span><br>Tarta de queso al vapor con coulis de mango',
     dress_section_eyebrow:'Dress code',dress_section_title:'Etiqueta <em>de gala</em>',
