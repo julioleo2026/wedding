@@ -5,6 +5,16 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0" name="viewport"/>
 <title>Gemma &amp; Adrià · 10 Juliol 2026</title>
+<meta name="description" content="Us convidem a celebrar el nostre gran dia. 10 de juliol de 2026 · Barcelona"/>
+<meta property="og:title" content="Gemma &amp; Adrià · 10 Juliol 2026"/>
+<meta property="og:description" content="Us convidem a acompanyar-nos en aquest dia tan especial 💜 10 de juliol de 2026 · Barcelona"/>
+<meta property="og:image" content="https://i.imgur.com/placeholder-og.png"/>
+<meta property="og:type" content="website"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Gemma &amp; Adrià · 10 Juliol 2026"/>
+<meta name="twitter:description" content="Us convidem a acompanyar-nos en aquest dia tan especial 💜 10 de juliol de 2026 · Barcelona"/>
+<!-- Favicon inline SVG (logo G&A) -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%232d2438'/%3E%3Ctext x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia%2C serif' font-size='22' font-style='italic' fill='%23c9a84c'%3EG%26A%3C/text%3E%3C/svg%3E"/>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&amp;family=Jost:wght@200;300;400&amp;display=swap" rel="stylesheet"/>
 <style>
   :root {
@@ -346,6 +356,16 @@
     height: 1px;
     background: var(--gold);
     margin: 0 auto 24px;
+  }
+
+  .countdown-date-label {
+    margin-top: 28px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(16px, 4vw, 22px);
+    font-style: italic;
+    font-weight: 300;
+    letter-spacing: 0.06em;
+    color: var(--gold-light);
   }
 
   /* ===== DETAILS NOTICE ===== */
@@ -864,7 +884,7 @@
 <p class="eyebrow" data-i18n="couple_eyebrow">Us convidem a celebrar</p>
 <h2 data-i18n="couple_heading">El nostre <em>gran dia</em></h2>
 <div class="gold-line"></div>
-<p data-i18n="couple_text">Amb molta il·lusió i amor, us convidem a acompanyar-nos en aquest dia tan especial. Serà un plaer compartir-lo amb vosaltres.</p>
+<p data-i18n="couple_text">Amb molta il·lusió i amor, us convidem a acompanyar-nos en aquest dia tan especial. Tenim moltes ganes de compartir-lo amb vosaltres.</p>
 </div>
 </div>
 <!-- COUNTDOWN -->
@@ -892,6 +912,7 @@
 <span class="countdown-label" data-i18n="cd_secs">Segons</span>
 </div>
 </div>
+<p class="countdown-date-label" data-i18n="countdown_date">Divendres, 10 de juliol de 2026</p>
 </section>
 <!-- DETAILS -->
 <section class="details-section reveal" id="detalls">
@@ -955,7 +976,7 @@
 <h2 class="section-title" data-i18n="gift_title">Un <em>detall</em></h2>
 <div class="gold-line"></div>
 <div class="gift-card">
-<p class="gift-text" data-i18n="gift_text">La vostra presència és el nostre regal més valuós. Si tot i així voleu tenir un detall amb nosaltres, agrairíem una contribució per al nostre nou camí junts.</p>
+<p class="gift-text" data-i18n="gift_text">La vostra presència és el nostre regal més valuós. Si tot i així voleu tenir un detall amb nosaltres, agrairíem una contribució per al nostre nou camí junts.<br><br><span style="font-size:13px;color:var(--text-light);">Podeu fer-ho al següent número de compte. Al concepte, indiqueu <strong>únicament</strong> el vostre nom. Moltes gràcies.</span></p>
 <p class="gift-iban"><span>ES88</span> <span>0049</span> <span>0528</span> <span>1725</span> <span>1114</span> <span>2675</span></p>
 </div>
 </div>
@@ -973,8 +994,9 @@ const i18n = {
   ca: {
     nav_details:'Detalls',nav_rsvp:'Confirmació',
     couple_eyebrow:'Us convidem a celebrar',couple_heading:'El nostre <em>gran dia</em>',
-    couple_text:'Amb molta il·lusió i amor, us convidem a acompanyar-nos en aquest dia tan especial. Serà un plaer compartir-lo amb vosaltres.',
+    couple_text:'Amb molta il·lusió i amor, us convidem a acompanyar-nos en aquest dia tan especial. Tenim moltes ganes de compartir-lo amb vosaltres.',
         countdown_eyebrow:'Compte enrere',countdown_title:'Queda <em>poc!</em>',
+    countdown_date:'Divendres, 10 de juliol de 2026',
     cd_days:'Dies',cd_hours:'Hores',cd_mins:'Minuts',cd_secs:'Segons',
     details_eyebrow:'Informació',details_title:'Detalls de <em>la celebració</em>',
     details_notice:'Es recomana sortir amb temps. A l\'estiu els divendres sol haver molt de trànsit en aquesta direcció.',
@@ -987,13 +1009,14 @@ const i18n = {
     rsvp_text:'Si us plau, confirmeu la vostra assistència abans del dia 8 d\'abril de 2026.',
     rsvp_btn:'Confirmar assistència',
     gift_eyebrow:'Regal',gift_title:'Un <em>detall</em>',
-    gift_text:'La vostra presència és el nostre regal més valuós. Si tot i així voleu tenir un detall amb nosaltres, agrairíem una contribució per al nostre nou camí junts.',
+    gift_text:'La vostra presència és el nostre regal més valuós. Si tot i així voleu tenir un detall amb nosaltres, agrairíem una contribució per al nostre nou camí junts.<br><br><span style="font-size:13px;color:var(--text-light);">Podeu fer-ho al següent número de compte. Al concepte, indiqueu <strong>únicament</strong> el vostre nom. Moltes gràcies.</span>',
       },
   es: {
     nav_details:'Detalles',nav_rsvp:'Confirmación',
     couple_eyebrow:'Os invitamos a celebrar',couple_heading:'Nuestro <em>gran día</em>',
-    couple_text:'Con mucha ilusión y amor, os invitamos a acompañarnos en este día tan especial. Será un placer compartirlo con vosotros.',
+    couple_text:'Con mucha ilusión y amor, os invitamos a acompañarnos en este día tan especial. Tenemos muchas ganas de compartirlo con vosotros.',
         countdown_eyebrow:'Cuenta atrás',countdown_title:'¡Queda <em>poco!</em>',
+    countdown_date:'Viernes, 10 de julio de 2026',
     cd_days:'Días',cd_hours:'Horas',cd_mins:'Minutos',cd_secs:'Segundos',
     details_eyebrow:'Información',details_title:'Detalles de <em>la celebración</em>',
     details_notice:'Se recomienda salir con tiempo. En verano los viernes suele haber mucho tráfico en esta dirección.',
@@ -1006,13 +1029,14 @@ const i18n = {
     rsvp_text:'Por favor, confirmad vuestra asistencia antes del 8 de abril de 2026.',
     rsvp_btn:'Confirmar asistencia',
     gift_eyebrow:'Regalo',gift_title:'Un <em>detalle</em>',
-    gift_text:'Vuestra presencia es nuestro regalo más valioso. Si aun así queréis tener un detalle con nosotros, agradeceríamos una contribución para nuestro nuevo camino juntos.',
+    gift_text:'Vuestra presencia es nuestro regalo más valioso. Si aun así queréis tener un detalle con nosotros, agradeceríamos una contribución para nuestro nuevo camino juntos.<br><br><span style="font-size:13px;color:var(--text-light);">Podéis hacerlo en el siguiente número de cuenta. En el concepto, indicad <strong>únicamente</strong> vuestro nombre. Muchas gracias.</span>',
       },
   en: {
     nav_details:'Details',nav_rsvp:'RSVP',
     couple_eyebrow:'You are invited to celebrate',couple_heading:'Our <em>big day</em>',
-    couple_text:'With great joy and love, we invite you to join us on this very special day. It will be a pleasure to share it with you.',
+    couple_text:'With great joy and love, we invite you to join us on this very special day. We can\'t wait to share it with you.',
         countdown_eyebrow:'Countdown',countdown_title:'Almost <em>there!</em>',
+    countdown_date:'Friday, 10th July 2026',
     cd_days:'Days',cd_hours:'Hours',cd_mins:'Minutes',cd_secs:'Seconds',
     details_eyebrow:'Information',details_title:'Celebration <em>details</em>',
     details_notice:'We recommend leaving with plenty of time. In summer, Fridays tend to have heavy traffic heading in this direction.',
@@ -1025,7 +1049,7 @@ const i18n = {
     rsvp_text:'Please confirm your attendance by April 8th, 2026.',
     rsvp_btn:'Confirm attendance',
     gift_eyebrow:'Gift',gift_title:'A little <em>something</em>',
-    gift_text:'Your presence is the most valuable gift to us. If you would still like to have a small gesture with us, we would appreciate a contribution towards our new journey together.',
+    gift_text:'Your presence is the most valuable gift to us. If you would still like to have a small gesture, we would appreciate a contribution towards our new journey together.<br><br><span style="font-size:13px;color:var(--text-light);">You can do so to the following account number. As the reference, please include <strong>only</strong> your name. Thank you so much.</span>',
       }
 };
 
