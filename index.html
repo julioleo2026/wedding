@@ -643,7 +643,7 @@
     margin-bottom: 16px;
   }
   .details-menu-item {
-    font-size: 16px;
+    font-size: 17px;
     font-weight: 300;
     line-height: 1.9;
     color: var(--text-mid);
@@ -654,6 +654,14 @@
   .details-menu-label {
     color: var(--lavender-deep);
     font-weight: 400;
+    font-size: inherit;
+  }
+  .details-menu-section-title {
+    display: inline-block;
+    font-size: 19px;
+    text-decoration: underline;
+    text-underline-offset: 0.16em;
+    text-decoration-thickness: 1px;
   }
 
 
@@ -1038,8 +1046,8 @@
 <p class="details-extra-text" data-i18n="details_extra_text">Hi haurà pica-pica, sopar i molta festa. Tenim l’espai reservat fins a les 3 h de la matinada. Durant tota la celebració hi haurà barra lliure de vi i cervesa i, després del sopar, 2 hores de barra lliure de copes.</p>
 <div class="details-menu">
 <p class="details-menu-heading" data-i18n="menu_box_title">MENU</p>
-<p class="details-menu-item" data-i18n="menu_part_one"><span class="details-menu-label">Primera part · Jardins</span><br/>Pica-pica</p>
-<p class="details-menu-item" data-i18n="menu_part_two"><span class="details-menu-label">Segona part · Saló</span></p>
+<p class="details-menu-item" data-i18n="menu_part_one"><span class="details-menu-label details-menu-section-title">Primera part · Jardins</span><br/>Pica-pica</p>
+<p class="details-menu-item" data-i18n="menu_part_two"><span class="details-menu-label details-menu-section-title">Segona part · Saló</span></p>
 <p class="details-menu-item" data-i18n="menu_course_one"><span class="details-menu-label">Primer plat degustació</span><br/>Stracciatella amb caviar d’areng</p>
 <p class="details-menu-item" data-i18n="menu_course_two"><span class="details-menu-label">Segon plat degustació</span><br/>Ravioli de rostit amb el seu glacejat i salsa de foie</p>
 <p class="details-menu-item" data-i18n="menu_main_course"><span class="details-menu-label">Plat principal</span><br/>Melós de vedella amb parmentier i parmesà</p>
@@ -1067,7 +1075,7 @@
 <p class="section-eyebrow" data-i18n="rsvp_eyebrow">Confirmació d'assistència</p>
 <h2 class="section-title" data-i18n="rsvp_title">Ens <em>acompanyes?</em></h2>
 <div class="gold-line"></div>
-<p class="rsvp-desc" data-i18n="rsvp_text">Si us plau, confirmeu la vostra assistència abans del dia 8 d'abril de 2026.</p>
+<p class="rsvp-desc" data-i18n="rsvp_text">Si us plau, confirmeu la vostra assistència abans del dia 10 d'abril de 2026.</p>
 <div style="text-align:center">
 <a class="rsvp-btn" data-i18n="rsvp_btn" href="https://form.typeform.com/to/ypo452KG" rel="noopener" target="_blank">Confirmar assistència</a>
 </div>
@@ -1109,8 +1117,8 @@ const i18n = {
     details_menu_title:'Menú',
     details_extra_text:'Hi haurà pica-pica, sopar i molta festa. Tenim l’espai reservat fins a les 3 h de la matinada. Durant tota la celebració hi haurà barra lliure de vi i cervesa i, després del sopar, 2 hores de barra lliure de copes.',
     menu_box_title:'MENU',
-    menu_part_one:'<span class="details-menu-label">Primera part · Jardins</span><br>Pica-pica',
-    menu_part_two:'<span class="details-menu-label">Segona part · Saló</span>',
+    menu_part_one:'<span class="details-menu-label details-menu-section-title">Primera part · Jardins</span><br>Pica-pica',
+    menu_part_two:'<span class="details-menu-label details-menu-section-title">Segona part · Saló</span>',
     menu_course_one:'<span class="details-menu-label">Primer plat degustació</span><br>Stracciatella amb caviar d’areng',
     menu_course_two:'<span class="details-menu-label">Segon plat degustació</span><br>Ravioli de rostit amb el seu glacejat i salsa de foie',
     menu_main_course:'<span class="details-menu-label">Plat principal</span><br>Melós de vedella amb parmentier i parmesà',
@@ -1138,8 +1146,8 @@ const i18n = {
     details_menu_title:'Menú',
     details_extra_text:'Habrá pica-pica, cena y mucha fiesta. Tenemos el espacio reservado hasta las 3 de la madrugada. Durante toda la celebración habrá barra libre de vino y cerveza y, después de la cena, 2 horas de barra libre de copas.',
     menu_box_title:'MENÚ',
-    menu_part_one:'<span class="details-menu-label">Primera parte · Jardines</span><br>Pica-pica',
-    menu_part_two:'<span class="details-menu-label">Segunda parte · Salón</span>',
+    menu_part_one:'<span class="details-menu-label details-menu-section-title">Primera parte · Jardines</span><br>Pica-pica',
+    menu_part_two:'<span class="details-menu-label details-menu-section-title">Segunda parte · Salón</span>',
     menu_course_one:'<span class="details-menu-label">Plato degustación 1</span><br>Stracciatella con caviar de arenque',
     menu_course_two:'<span class="details-menu-label">Plato degustación 2</span><br>Ravioli de rustido con su glaseado y salsa de foie',
     menu_main_course:'<span class="details-menu-label">Plato principal</span><br>Meloso de ternera con parmentier y parmesano',
@@ -1148,7 +1156,7 @@ const i18n = {
     dress_section_text:'La etiqueta es de gala. Os pedimos, por favor, que no vistáis ni de blanco ni de color crema.',
     dress_code:'Etiqueta Gala',
     rsvp_eyebrow:'Confirmación de asistencia',rsvp_title:'¿Nos <em>acompañas?</em>',
-    rsvp_text:'Por favor, confirmad vuestra asistencia antes del 8 de abril de 2026.',
+    rsvp_text:'Por favor, confirmad vuestra asistencia antes del 10 de abril de 2026.',
     rsvp_btn:'Confirmar asistencia',
     gift_eyebrow:'Regalo',gift_title:'Un <em>detalle</em>',
     gift_text:'Vuestra presencia es nuestro regalo más valioso. Si aun así queréis tener un detalle con nosotros, agradeceríamos una contribución para nuestro nuevo camino juntos.<br><br><span style="font-size:13px;color:var(--text-light);">Podéis hacerlo en el siguiente número de cuenta. En el concepto, indicad <strong>únicamente</strong> vuestro nombre. Muchas gracias.</span>',
@@ -1167,8 +1175,8 @@ const i18n = {
     details_menu_title:'Menu',
     details_extra_text:'There will be welcome bites, dinner and lots of dancing. We have the venue reserved until 3 am. Throughout the celebration there will be free-flowing wine and beer and, after dinner, 2 hours of open bar with spirits.',
     menu_box_title:'MENU',
-    menu_part_one:'<span class="details-menu-label">First part · Gardens</span><br>Cocktail reception bites',
-    menu_part_two:'<span class="details-menu-label">Second part · Dining room</span>',
+    menu_part_one:'<span class="details-menu-label details-menu-section-title">First part · Gardens</span><br>Cocktail reception bites',
+    menu_part_two:'<span class="details-menu-label details-menu-section-title">Second part · Dining room</span>',
     menu_course_one:'<span class="details-menu-label">Tasting course 1</span><br>Stracciatella with herring caviar',
     menu_course_two:'<span class="details-menu-label">Tasting course 2</span><br>Roast-style ravioli with its glaze and foie sauce',
     menu_main_course:'<span class="details-menu-label">Main course</span><br>Tender beef with parmentier and parmesan',
@@ -1177,7 +1185,7 @@ const i18n = {
     dress_section_text:'The dress code is formal attire. Please avoid wearing white or cream.',
     dress_code:'Formal Attire',
     rsvp_eyebrow:'RSVP',rsvp_title:'Will you <em>join us?</em>',
-    rsvp_text:'Please confirm your attendance by April 8th, 2026.',
+    rsvp_text:'Please confirm your attendance by April 10th, 2026.',
     rsvp_btn:'Confirm attendance',
     gift_eyebrow:'Gift',gift_title:'A little <em>something</em>',
     gift_text:'Your presence is the most valuable gift to us. If you would still like to have a small gesture, we would appreciate a contribution towards our new journey together.<br><br><span style="font-size:13px;color:var(--text-light);">You can do so to the following account number. As the reference, please include <strong>only</strong> your name. Thank you so much.</span>',
